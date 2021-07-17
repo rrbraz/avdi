@@ -1,9 +1,8 @@
-import React from "react";
-import { Box, TextInput, Button } from "grommet";
-import { Ad } from "grommet-icons";
-import logo from "../public/logo.svg";
-import Image from "next/image";
+import { Box, Button, TextInput } from "grommet";
 import { useRouter } from "next/dist/client/router";
+import Image from "next/image";
+import React from "react";
+import logo from "../public/logo.svg";
 
 export default function Home() {
   const router = useRouter();
@@ -19,7 +18,7 @@ export default function Home() {
     >
       <Box align="stretch" justify="center" direction="column" gap="medium">
         <Box align="center" justify="center">
-          <Image src={logo} />
+          <Image src={logo} alt="logo" />
         </Box>
         <TextInput placeholder="e-mail" />
         <TextInput type="password" placeholder="senha" />
@@ -29,7 +28,9 @@ export default function Home() {
           plain={false}
           type="submit"
           primary
-          onClick={() => {router.push("/dashboard");}}
+          onClick={() => {
+            router.push("/dashboard");
+          }}
         />
       </Box>
     </Box>

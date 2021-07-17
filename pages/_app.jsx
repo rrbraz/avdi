@@ -1,6 +1,6 @@
 import { Grommet } from 'grommet';
+import { theme } from '../lib/theme';
 import '../styles/globals.css';
-import { theme } from './theme';
 
 function MyApp({ Component, pageProps }) {
   return (
