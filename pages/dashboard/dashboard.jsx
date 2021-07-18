@@ -1,14 +1,116 @@
 import {
-  Avatar, Box, Button,
+  Avatar,
+  Box,
+  Button,
   Header,
-  Heading, Pagination, Text, TextInput
+  Heading,
+  Pagination,
+  Text,
+  TextInput
 } from "grommet";
 import { Menu, Search } from "grommet-icons";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 
+let avaliacoes = [
+  {
+    name: "Sara Martins",
+    gender: "female",
+    date: "Hoje",
+    status: "incompleta",
+  },
+  {
+    name: "Cauã Saraiva",
+    gender: "female",
+    date: "Hoje",
+    status: "incompleta",
+  },
+  {
+    name: "Bernardo Braga",
+    gender: "female",
+    date: "Ontem",
+    status: "completa",
+  },
+  {
+    name: "Alessandra Oliveira",
+    gender: "female",
+    date: "Ontem",
+    status: "completa",
+  },
+  {
+    name: "Margarida Batista",
+    gender: "female",
+    date: "19/07/2021",
+    status: "completa",
+  },
+  {
+    name: "Bruna Barros",
+    gender: "female",
+    date: "19/07/2021",
+    status: "completa",
+  },
+  {
+    name: "Enzo Saraiva",
+    gender: "female",
+    date: "19/07/2021",
+    status: "completa",
+  },
+  {
+    name: "Silas Carvalho",
+    gender: "female",
+    date: "16/07/2021",
+    status: "completa",
+  },
+];
+
 const Dashboard = () => {
   const router = useRouter();
+
+  const renderLine = ({ name, date, status }) => {
+    return (
+      <Box
+        key={name}
+        align="center"
+        justify="start"
+        direction="row"
+        pad="xsmall"
+        gap="medium"
+        onClick={() =>
+          router.push(
+            `/dashboard/avaliacao/${status == "completa" ? "conclusao" : 7}`
+          )
+        }
+      >
+        <Avatar
+          align="center"
+          flex={false}
+          justify="center"
+          overflow="hidden"
+          round="full"
+          src={`https://avatars.dicebear.com/api/initials/${encodeURI(
+            name
+          )}.svg`}
+        />
+        <Box align="start" justify="center">
+          <Text>{name}</Text>
+          <Text size="small" textAlign="start" color="text-weak">
+            Avaliação {status}
+          </Text>
+        </Box>
+        <Box
+          align="end"
+          justify="start"
+          direction="column"
+          flex="grow"
+          fill="vertical"
+        >
+          <Text size="small" textAlign="end">
+            {date}
+          </Text>
+        </Box>
+      </Box>
+    );
+  };
 
   return (
     <Box
@@ -47,275 +149,18 @@ const Dashboard = () => {
           >
             Ultimas avaliações realizadas
           </Heading>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            align="center"
-            justify="start"
-            direction="row"
-            pad="xsmall"
-            gap="medium"
-          >
-            <Avatar
-              align="center"
-              flex={false}
-              justify="center"
-              overflow="hidden"
-              round="full"
-              src="https://i.pravatar.cc/100?img=49"
-            />
-            <Box align="start" justify="center">
-              <Text>Letícia Evelyn Castro</Text>
-              <Text size="small" textAlign="start" color="text-weak">
-                Avaliação incompleta
-              </Text>
-            </Box>
-            <Box
-              align="end"
-              justify="start"
-              direction="column"
-              flex="grow"
-              fill="vertical"
-            >
-              <Text size="small" textAlign="end">
-                Hoje
-              </Text>
-            </Box>
-          </Box>
+          {avaliacoes.map(renderLine)}
         </Box>
         <Pagination numberItems={27} />
       </Box>
       <Box align="end" justify="center" pad="medium">
-        <Button label="Nova avaliação" primary onClick={() => {router.push("/dashboard/avaliacao/0")}}/>
+        <Button
+          label="Nova avaliação"
+          primary
+          onClick={() => {
+            router.push("/dashboard/avaliacao/0");
+          }}
+        />
       </Box>
     </Box>
   );
