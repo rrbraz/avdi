@@ -1,11 +1,14 @@
 import { Box, Button, TextInput } from "grommet";
 import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../public/logo.svg";
 
 export default function Home() {
   const router = useRouter();
+  useEffect(() => {
+    router.prefetch("/dashboard");
+  }, [router]);
 
   return (
     <Box

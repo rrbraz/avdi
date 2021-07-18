@@ -315,7 +315,7 @@ const Dashboard = () => {
         <Pagination numberItems={27} />
       </Box>
       <Box align="end" justify="center" pad="medium">
-        <Button label="Nova avaliação" primary onClick={() => {router.push("/dashboard/avaliacao")}}/>
+        <Button label="Nova avaliação" primary onClick={() => {router.push("/dashboard/avaliacao/0")}}/>
       </Box>
     </Box>
   );
