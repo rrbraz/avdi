@@ -1,4 +1,4 @@
-import { Box, Button, Heading, List } from "grommet";
+import { Box, Button, Heading, List, Text } from "grommet";
 import QuestionarioLayout from "../../../components/QuestionarioLayout";
 
 const notasAvaliacao = [
@@ -48,11 +48,16 @@ const Conclusao = () => {
         >
           Resumo da avaliação
         </Heading>
+        <Box direction="row" justify="between" pad="small">
+          <Text weight="bold">Pergunta</Text>
+          <Text weight="bold">Nota</Text>
+        </Box>
         <List
           data={notasAvaliacao}
           secondaryKey="nota"
           primaryKey="name"
           pad="small"
+          color="purple"
         />
         <Box
         align="center"
