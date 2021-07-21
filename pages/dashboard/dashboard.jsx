@@ -4,11 +4,12 @@ import {
   Button,
   Header,
   Heading,
+  Menu,
   Pagination,
   Text,
-  TextInput
+  TextInput,
 } from "grommet";
-import { Menu, Search } from "grommet-icons";
+import { Search } from "grommet-icons";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 
@@ -120,18 +121,40 @@ const Dashboard = () => {
       flex="grow"
       width={{ max: "100%", width: "100%" }}
     >
-      <Header
-        align="center"
-        direction="row"
-        flex={false}
-        justify="between"
-        gap="medium"
-        background={{ color: "brand" }}
-        pad="small"
-      >
-        <Box align="center" justify="center" />
-        <Button icon={<Menu />} plain />
-        <TextInput placeholder="Pesquisar" icon={<Search />} />
+      <Header background={{ color: "brand" }} pad="xsmall" justify="center">
+        <Box
+          align="center"
+          direction="row"
+          justify="between"
+          gap="medium"
+          width="xlarge"
+          pad={{ horizontal: "medium" }}
+        >
+          {/* <Button icon={<Menu />} plain /> */}
+          <Box background="#FFFFFF33" fill round="xsmall">
+            <TextInput
+              placeholder="Pesquisar"
+              type="search"
+              icon={<Search />}
+              plain
+              background
+            />
+          </Box>
+          <Menu
+            label={<Avatar src="https://i.pravatar.cc/100?img=49" />}
+            dropAlign={{ top: "bottom", right: "right" }}
+            icon={false}
+            items={[
+              { label: "trocar senha", onClick: () => {} },
+              {
+                label: "logout",
+                onClick: () => {
+                  router.push("/");
+                },
+              },
+            ]}
+          />
+        </Box>
       </Header>
       <Box align="center" justify="start" flex="grow">
         <Box
@@ -141,26 +164,28 @@ const Dashboard = () => {
           pad={{ horizontal: "medium", bottom: "small" }}
           width={{ width: "xlarge" }}
         >
-          <Heading
-            level="3"
-            textAlign="start"
-            size="small"
-            margin={{ left: "small" }}
-          >
-            Ultimas avaliações realizadas
-          </Heading>
+          <Box direction="row" justify="between" align="center">
+            <Heading
+              level="3"
+              textAlign="start"
+              size="small"
+              margin={{ left: "small" }}
+            >
+              Ultimas avaliações realizadas
+            </Heading>
+            <Button
+              label="Nova avaliação"
+              primary
+              labelColor="white"
+              color="purple"
+              onClick={() => {
+                router.push("/dashboard/avaliacao/nova");
+              }}
+            />
+          </Box>
           {avaliacoes.map(renderLine)}
         </Box>
         <Pagination numberItems={27} />
-      </Box>
-      <Box align="end" justify="center" pad="medium">
-        <Button
-          label="Nova avaliação"
-          primary
-          onClick={() => {
-            router.push("/dashboard/avaliacao/0");
-          }}
-        />
       </Box>
     </Box>
   );

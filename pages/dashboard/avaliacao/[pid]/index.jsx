@@ -64,6 +64,7 @@ const Avaliacao = () => {
         </Heading>
         <Paragraph fill>{pergunta?.descricao}</Paragraph>
         <Select
+          key={`sl-${pid}`}
           placeholder="Selecione"
           options={[
             "1 - muito ruim",
@@ -80,7 +81,7 @@ const Avaliacao = () => {
         gap="xsmall"
         pad={{ top: "large", bottom: "medium" }}
       >
-        <TextArea placeholder="Observações" />
+        <TextArea key={`ta-${pid}`} placeholder="Observações" />
       </Box>
       <Box align="center" justify="center" direction="row" gap="small">
         <Button

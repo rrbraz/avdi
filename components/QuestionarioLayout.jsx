@@ -1,6 +1,7 @@
 import { Avatar, Box, Button, Header, Text } from "grommet";
 import { LinkPrevious } from "grommet-icons";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const QuestionarioLayout = ({titulo, ...props}) => {
   const router = useRouter();
@@ -13,7 +14,7 @@ const QuestionarioLayout = ({titulo, ...props}) => {
         justify="center"
         overflow="hidden"
         round="full"
-        src="https://i.pravatar.cc/100?img=49"
+        src="https://avatars.dicebear.com/api/initials/leticia-evelyn.svg"
       />
       <Box align="start" justify="center">
         <Text size="small" textAlign="start" color="text-weak">
@@ -33,16 +34,15 @@ const QuestionarioLayout = ({titulo, ...props}) => {
       gap="small"
     >
       <Header
+        justify="center" 
         align="center"
-        direction="row"
-        flex={false}
-        justify="start"
-        gap="medium"
         background={{ color: "brand" }}
         pad="small"
       >
-        <Button icon={<LinkPrevious />} plain onClick={() => router.push("/dashboard")}/>
-        <Text textAlign="center">{titulo}</Text>
+        <Box width="xlarge" direction="row" gap="medium" justify="start" >
+          <Button icon={<LinkPrevious />} plain onClick={() => router.push("/dashboard")}/>
+          <Text textAlign="center">Nova Avaliação</Text>
+        </Box>
       </Header>
       <Box align="center" justify="center" pad="medium" flex="grow">
         <Box width={{ width: "xlarge" }} direction="column">
